@@ -2,9 +2,10 @@
    {
       "brushOpacityMax" : 120,
       "brushSizeMax" : 800,
+      "qrZoneRectSize" : 391,
       "canvasSize" : {
-         "height" : 1080,
-         "width" : 720
+         "height" : 1800,
+         "width" : 1200
       }
    }
 ]

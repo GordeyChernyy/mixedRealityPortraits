@@ -8,6 +8,7 @@ var isRedrawMode = false;
 // size
 var scaleFactor;
 var canvasWidth;
+var qrZoneRectSize;
 var canvasHeight;
 var canvasOffsetX;
 
@@ -29,6 +30,9 @@ var circleMode = 0;
 
 // playback
 var playbackSpeed = 5;
+
+// text
+var text;
 
 function preload(){
 	var id = urlParam('portraitId');
@@ -61,6 +65,10 @@ function setup(){
 
 	background(255);
 	generateSwatch();
+
+	// text 
+	text = createDiv('Tap or click anywhere to redraw the portrait');
+  	text.position(10, windowHeight-20);
 }
 function resetDrawing(){
 	clear();
@@ -102,7 +110,8 @@ function calcCanvasSize(){
 	canvasOffsetX = (windowWidth - canvasWidth)/2;
 }
 function calcScaleFactor(){
-	scaleFactor = windowHeight/appSettings[0]['canvasSize']['height'];
+	qrZoneRectSize = appSettings[0]['qrZoneRectSize']
+	scaleFactor = windowHeight/(appSettings[0]['canvasSize']['height'] - qrZoneRectSize);
 	console.log(scaleFactor);
 }
 // update
@@ -211,7 +220,7 @@ function brushModeLines(x, y, mouseV, color){
 	}
 }
 function toScreenX(value){
-	return value*scaleFactor;
+	return value*scaleFactor+canvasOffsetX;
 }
 function toScreenY(value){
 	return value*scaleFactor;

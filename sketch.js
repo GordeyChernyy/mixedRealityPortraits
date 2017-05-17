@@ -111,7 +111,7 @@ function calcCanvasSize(){
 }
 function calcScaleFactor(){
 	qrZoneRectSize = appSettings[0]['qrZoneRectSize']
-	scaleFactor = windowHeight/(appSettings[0]['canvasSize']['height'] - qrZoneRectSize);
+	scaleFactor = windowHeight/(appSettings[0]['canvasSize']['height']);
 	console.log(scaleFactor);
 }
 // update
